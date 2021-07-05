@@ -1,0 +1,5 @@
+Credentials cache: API:405A4EA5-B260-406C-95D2-10A1896C5E1F
+        Principal: ypetruzz@42LAUSANNE.CH
+
+  Issued                Expires               Principal
+Jul  5 15:01:11 2021  Jul  6 01:01:05 2021  krbtgt/42LAUSANNE.CH@42LAUSANNE.CH
