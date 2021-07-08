@@ -6,7 +6,7 @@
 /*   By: ypetruzz <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 10:24:32 by ypetruzz          #+#    #+#             */
-/*   Updated: 2021/07/08 12:55:27 by ypetruzz         ###   ########.fr       */
+/*   Updated: 2021/07/08 16:51:16 by ypetruzz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,4 @@ void	ft_print_comb(void)
 			}
 		}
 	}
-}
-
-int	main(void)
-{
-	ft_print_comb();
 }
