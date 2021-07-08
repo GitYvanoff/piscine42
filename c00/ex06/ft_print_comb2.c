@@ -6,7 +6,7 @@
 /*   By: ypetruzz <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 13:02:59 by ypetruzz          #+#    #+#             */
-/*   Updated: 2021/07/08 16:43:25 by ypetruzz         ###   ########.fr       */
+/*   Updated: 2021/07/08 16:48:58 by ypetruzz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	print_comb_2(void)
 {
 	char	a;
 	char	b;
-	
+
 	a = 0;
 	b = 1;
 	while (a < 99)
