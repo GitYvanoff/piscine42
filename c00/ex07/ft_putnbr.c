@@ -6,7 +6,7 @@
 /*   By: ypetruzz <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:28:59 by ypetruzz          #+#    #+#             */
-/*   Updated: 2021/07/08 19:42:24 by ypetruzz         ###   ########.fr       */
+/*   Updated: 2021/07/08 21:01:53 by ypetruzz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_putnbr(int nb)
 
 	if (nb < 0)
 	{
-		nb_unsigned = (unsigned int)nb;
+		nb_unsigned = (unsigned int)(-1 * nb);
 		ft_putchar('-');
 	}
 	else
@@ -35,9 +35,4 @@ void	ft_putnbr(int nb)
 	}
 	else
 		ft_putchar(nb_unsigned + '0');
-}
-
-int	main (void)
-{
-	ft_putnbr(108);
 }
