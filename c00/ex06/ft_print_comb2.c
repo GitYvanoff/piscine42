@@ -6,7 +6,7 @@
 /*   By: ypetruzz <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 13:02:59 by ypetruzz          #+#    #+#             */
-/*   Updated: 2021/07/08 21:01:10 by ypetruzz         ###   ########.fr       */
+/*   Updated: 2021/07/09 23:33:26 by ypetruzz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_putchar(char c)
 	write(1, &c, 1);
 }
 
-void	print_comb_2(void)
+void	ft_print_comb_2(void)
 {
 	char	a;
 	char	b;
@@ -40,4 +40,9 @@ void	print_comb_2(void)
 			b = ++a + 1;
 		}
 	}
+}
+
+int	main(void)
+{
+	ft_print_comb_2();
 }
