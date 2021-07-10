@@ -6,11 +6,9 @@
 /*   By: ypetruzz <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/10 23:29:09 by ypetruzz          #+#    #+#             */
-/*   Updated: 2021/07/11 00:17:35 by ypetruzz         ###   ########.fr       */
+/*   Updated: 2021/07/11 00:35:06 by ypetruzz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <unistd.h>
 
 int	ft_strlen(char *str)
 {
