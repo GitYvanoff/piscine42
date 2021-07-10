@@ -6,18 +6,18 @@
 /*   By: ypetruzz <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:28:59 by ypetruzz          #+#    #+#             */
-/*   Updated: 2021/07/08 21:01:53 by ypetruzz         ###   ########.fr       */
+/*   Updated: 2021/07/10 20:58:29 by ypetruzz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putchar(int nb)
+void	ft_putchar(int	nb)
 {
 	write(1, &nb, 1 );
 }
 
-void	ft_putnbr(int nb)
+void	ft_putnbr(int	nb)
 {
 	unsigned int	nb_unsigned;
 
@@ -27,7 +27,7 @@ void	ft_putnbr(int nb)
 		ft_putchar('-');
 	}
 	else
-		nb_unsigned = (unsigned int)nb;
+		 nb_unsigned = (unsigned int)nb;
 	if (nb_unsigned >= 10)
 	{
 		ft_putnbr(nb_unsigned / 10);
