@@ -6,13 +6,11 @@
 /*   By: ypetruzz <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 18:40:23 by ypetruzz          #+#    #+#             */
-/*   Updated: 2021/07/11 20:08:44 by ypetruzz         ###   ########.fr       */
+/*   Updated: 2021/07/11 20:17:01 by ypetruzz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
-int	ft_strlen(char *str)
+int	ft_strlen(char	*str)
 {
 	int	count;
 
@@ -24,7 +22,7 @@ int	ft_strlen(char *str)
 	return (count);
 }
 
-char *ft_strcpy(char *dest, char *src)
+char	*ft_strcpy(char	*dest, char	*src)
 {
 	int	strlen;
 	int	count;
@@ -37,14 +35,13 @@ char *ft_strcpy(char *dest, char *src)
 		count++;
 	}
 	*(dest + count) = '\0';
-	return(dest);
+	return (dest);
 }
 
-int	main(void)
+/*int	main(void)
 {
 	char	test[5];
-
-	char strtab[] = "hello";
+	char	strtab[] = "hello";
 
 	printf("%s", ft_strcpy(strtab, test));
-}
+}*/
