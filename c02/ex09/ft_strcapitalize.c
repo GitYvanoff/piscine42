@@ -6,23 +6,23 @@
 /*   By: ypetruzz <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/12 14:11:26 by ypetruzz          #+#    #+#             */
-/*   Updated: 2021/07/12 18:18:20 by ypetruzz         ###   ########.fr       */
+/*   Updated: 2021/07/12 18:26:17 by ypetruzz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+//#include <stdio.h>
 
-int		ft_isdigit(char c)
+int	ft_isdigit(char c)
 {
 	return (c >= '0' && c <= '9');
 }
 
-int		ft_islower(char c)
+int	ft_islower(char c)
 {
 	return (c >= 'a' && c <= 'z');
 }
 
-int		ft_isupper(char c)
+int	ft_isupper(char c)
 {
 	return (c >= 'A' && c <= 'Z');
 }
@@ -50,9 +50,9 @@ char	*ft_strcapitalize(char	*str)
 	}
 	return (str);
 }
-int	main(void)
+/*int	main(void)
 {
-	char tab_test[] = "saLut, comment tu vas ? 42mots quarante-deux; cinquante+et+un";
+	char tab_test[] = "";
 
 	printf("%s", ft_strcapitalize(tab_test));
-}
+}*/

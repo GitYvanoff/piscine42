@@ -6,7 +6,7 @@
 /*   By: ypetruzz <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/12 12:38:46 by ypetruzz          #+#    #+#             */
-/*   Updated: 2021/07/12 13:49:14 by ypetruzz         ###   ########.fr       */
+/*   Updated: 2021/07/12 13:50:10 by ypetruzz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	*ft_strupcase(char *str)
 	return (str);
 }
 
-/* int main(void)
+/*int main(void)
 {
 	char	tab_test[] = "S_DaakueoF";
 	
