@@ -6,13 +6,15 @@
 /*   By: ypetruzz <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 14:20:39 by ypetruzz          #+#    #+#             */
-/*   Updated: 2021/07/12 22:05:04 by ypetruzz         ###   ########.fr       */
+/*   Updated: 2021/07/12 23:55:42 by ypetruzz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 void	ft_swap(int	*a, int	*b)
 {
-	*a = *a + *b;
-	*b = *a - *b;
-	*a = *a - *b;
+	int	stock;
+
+	stock = *a;
+	*a = *b;
+	*b = stock;
 }
