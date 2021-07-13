@@ -6,7 +6,7 @@
 /*   By: ypetruzz <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 21:41:15 by ypetruzz          #+#    #+#             */
-/*   Updated: 2021/07/12 01:15:12 by ypetruzz         ###   ########.fr       */
+/*   Updated: 2021/07/14 01:58:03 by ypetruzz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 char	*ft_strncpy(char	*dest, char	*src, unsigned int	n)
 {
-	int	i;
-	int	end;
+	unsigned int	i;
+	unsigned int	end;
 
 	i = 0;
 	end = 0;
