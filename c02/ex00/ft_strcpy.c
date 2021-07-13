@@ -6,35 +6,23 @@
 /*   By: ypetruzz <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 18:40:23 by ypetruzz          #+#    #+#             */
-/*   Updated: 2021/07/11 20:22:54 by ypetruzz         ###   ########.fr       */
+/*   Updated: 2021/07/14 01:55:19 by ypetruzz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char	*str)
+//#include <stdio.h>
+
+char	*ft_strcpy(char *dest, char *src)
 {
-	int	count;
+	int	n;
 
-	count = 0;
-	while (*(str + count) != '\0')
+	n = 0;
+	while (*(src + n) != '\0')
 	{
-		count++;
+		*(dest + n) = *(src + n);
+		n++;
 	}
-	return (count);
-}
-
-char	*ft_strcpy(char	*dest, char	*src)
-{
-	int	strlen;
-	int	count;
-
-	strlen = ft_strlen(dest);
-	count = 0;
-	while (count <= strlen)
-	{
-		*(src + count) = *(dest + count);
-		count++;
-	}
-	*(dest + count) = '\0';
+	*(dest + n) = *(src + n);
 	return (dest);
 }
 
