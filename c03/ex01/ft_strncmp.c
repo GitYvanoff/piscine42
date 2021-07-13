@@ -6,7 +6,7 @@
 /*   By: ypetruzz <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 01:55:59 by ypetruzz          #+#    #+#             */
-/*   Updated: 2021/07/13 02:33:33 by ypetruzz         ###   ########.fr       */
+/*   Updated: 2021/07/13 14:22:52 by ypetruzz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,14 @@ int	ft_strncmp(char	*s1, char	*s2, unsigned	int	n)
 
 /*int	main(void)
 {
-	char	*s1 = "hello";
-	char	*s2 = "helro";
+	char	*s1 = "helro";
+	char	*s2 = "hello";
 	int	x;
 	int	y;
 
-	x = ft_strncmp(s1, s2, 2);
+	x = ft_strncmp(s1, s2, 4);
 	printf("%i\n", x);
 
-	y = ft_strncmp(s1, s2, 2);
+	y = strncmp(s1, s2, 4);
 	printf("%i", y);
 }*/
