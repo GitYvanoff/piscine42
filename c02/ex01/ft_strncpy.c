@@ -6,7 +6,7 @@
 /*   By: ypetruzz <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 21:41:15 by ypetruzz          #+#    #+#             */
-/*   Updated: 2021/07/14 01:58:03 by ypetruzz         ###   ########.fr       */
+/*   Updated: 2021/07/14 13:53:40 by ypetruzz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,15 @@
 char	*ft_strncpy(char	*dest, char	*src, unsigned int	n)
 {
 	unsigned int	i;
-	unsigned int	end;
 
-	i = 0;
-	end = 0;
+	i = -1;
+	while (++i < n && src[i])
+	{
+		dest[i] = src [i];
+	}
 	while (i < n)
-	{	
-		if (*(src + 1) == '\0' || end)
-		{
-			*(dest + i) = '\0';
-			end = i;
-		}
-		else
-		{
-			*(dest + i) = *(src + i);
-		}
+	{
+		dest[i] = '\0';
 		i++;
 	}
 	return (dest);
@@ -38,12 +32,20 @@ char	*ft_strncpy(char	*dest, char	*src, unsigned int	n)
 
 /*int	main(void)
 {
-	char	test[6];
+	char	test[12];
 	char	strtab[] = "hello";
 	unsigned int	test_n_l;
+	unsigned int	i;
 
-	test_n_l = 3;
-	printf("%s", ft_strncpy(test, strtab, test_n_l));
+	test_n_l = 12;
+	printf("%s\n", ft_strncpy(test, strtab, test_n_l));
+	i = 0;
+	while (i < test_n_l)
+		printf("%x ", test[i++]);
 	printf("\n");
-	printf("%s", strncpy(test, strtab, test_n_l));
+	printf("%s\n", strncpy(test, strtab, test_n_l));
+	i = 0;
+	while (i < test_n_l)
+		printf("%x ", test[i++]);
+	printf("\n");
 }*/
