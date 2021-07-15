@@ -6,12 +6,9 @@
 /*   By: ypetruzz <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 18:22:20 by ypetruzz          #+#    #+#             */
-/*   Updated: 2021/07/13 23:24:59 by ypetruzz         ###   ########.fr       */
+/*   Updated: 2021/07/15 19:10:43 by ypetruzz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-//#include <strings.h>
-//#include <stdio.h>
 
 int	ft_strlen(char *str)
 {
@@ -27,10 +24,10 @@ int	ft_strlen(char *str)
 
 unsigned	int	ft_strlcat(char *dest, char	*src, unsigned	int	size)
 {
-	int	dest_len;
-	int	src_len;
-	int	src_i;
-	int	offset;
+	unsigned int	offset;
+	int				dest_len;
+	int				src_len;
+	int				src_i;
 
 	dest_len = strlen(dest);
 	src_len = strlen(src);
@@ -48,7 +45,11 @@ unsigned	int	ft_strlcat(char *dest, char	*src, unsigned	int	size)
 	return (dest_len + src_len);
 }
 
-/*int main(void)
+/*
+#include <strings.h>
+#include <stdio.h>
+
+int main(void)
 {
 	char dest[50] = "Bonjour, bienvenue au parc";
 	char src[50] = " naturel de 42";
@@ -61,4 +62,5 @@ unsigned	int	ft_strlcat(char *dest, char	*src, unsigned	int	size)
 	printf("Test data :\nString : %s\nThing to add : %s\n", dest, src);
 	printf("*****My func result*****\n");
 	printf("%s\n\n", dest);
-}*/
+}
+//*/
