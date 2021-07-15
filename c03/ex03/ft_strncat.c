@@ -6,39 +6,36 @@
 /*   By: ypetruzz <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 14:04:42 by ypetruzz          #+#    #+#             */
-/*   Updated: 2021/07/15 18:52:49 by ypetruzz         ###   ########.fr       */
+/*   Updated: 2021/07/15 23:24:12 by ypetruzz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include <string.h>
-// #include <stdio.h>
+//#include <string.h>
+//#include <stdio.h>
+
+unsigned int	ft_strlen(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	return (i);
+}
 
 char	*ft_strncat(char	*dest, char	*src, unsigned	int	nb)
 {
-	int				count;
-	unsigned int	count_src;
+	unsigned int	count;
+	unsigned int	size_dest;
 
 	count = 0;
-	count_src = 0;
-	while (dest[count++] != '\0')
+	size_dest = ft_strlen(dest);
+	while (src[count] != '\0' && count < nb)
 	{
-		if (dest[count] == '\0')
-		{
-			while (src[count_src] != '\0')
-			{
-				dest[count] = src[count_src];
-				count++;
-				count_src++;
-				while (nb == count_src)
-				{
-					dest[++count] = '\0';
-					return (dest);
-				}
-			}
-			dest[count] = '\0';
-			return (dest);
-		}
+		dest[size_dest + count] = src[count];
+		count++;
 	}
+	dest[size_dest + count] = '\0';
 	return (dest);
 }
 
