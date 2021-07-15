@@ -6,7 +6,7 @@
 /*   By: ypetruzz <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 16:27:11 by ypetruzz          #+#    #+#             */
-/*   Updated: 2021/07/13 18:04:01 by ypetruzz         ###   ########.fr       */
+/*   Updated: 2021/07/15 19:41:13 by ypetruzz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,8 @@ char	*ft_strstr(char	*str, char	*to_find)
 
 	count = 0;
 	n = 0;
-	while (str[n] != '\0')
+	while (str[count] != '\0')
 	{
-		count++;
 		while (str[count] == to_find[n])
 		{
 			count++;
@@ -33,14 +32,27 @@ char	*ft_strstr(char	*str, char	*to_find)
 			}
 			if (str[count] == '\0')
 			{
-				return ("(null)");
+				return ((void *)0);
 			}
 		}
+		n = 0;
+		count++;
 	}
-	return ("(null)");
+	return ((void *)0);
 }
 
-/*int main(void)
+/*int	main(void)
+{
+	char	*str1;
+	char	*str2;
+
+	str1 = "Hello World!";
+	str2 = "co";
+	printf("strstr    : %ld\n", strstr(str1, str2) - str1);
+	printf("ft_strstr : %ld\n", ft_strstr(str1, str2) - str1);
+}
+
+int main(void)
 {
 	char *str = "Bonjour, bienvenue au parc";
 	char *to_find = "au parc naturel";
