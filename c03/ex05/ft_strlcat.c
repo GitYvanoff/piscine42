@@ -6,9 +6,12 @@
 /*   By: ypetruzz <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 18:22:20 by ypetruzz          #+#    #+#             */
-/*   Updated: 2021/07/15 19:10:43 by ypetruzz         ###   ########.fr       */
+/*   Updated: 2021/07/15 19:44:56 by ypetruzz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+//#include <stdio.h>
+//#include <strings.h>
 
 int	ft_strlen(char *str)
 {
@@ -45,11 +48,7 @@ unsigned	int	ft_strlcat(char *dest, char	*src, unsigned	int	size)
 	return (dest_len + src_len);
 }
 
-/*
-#include <strings.h>
-#include <stdio.h>
-
-int main(void)
+/*int main(void)
 {
 	char dest[50] = "Bonjour, bienvenue au parc";
 	char src[50] = " naturel de 42";
@@ -62,5 +61,4 @@ int main(void)
 	printf("Test data :\nString : %s\nThing to add : %s\n", dest, src);
 	printf("*****My func result*****\n");
 	printf("%s\n\n", dest);
-}
-//*/
+}*/
