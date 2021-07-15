@@ -6,17 +6,17 @@
 /*   By: ypetruzz <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 14:04:42 by ypetruzz          #+#    #+#             */
-/*   Updated: 2021/07/13 16:26:05 by ypetruzz         ###   ########.fr       */
+/*   Updated: 2021/07/15 18:52:49 by ypetruzz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <string.h>
-//#include <stdio.h>
+// #include <string.h>
+// #include <stdio.h>
 
 char	*ft_strncat(char	*dest, char	*src, unsigned	int	nb)
 {
-	int	count;
-	int	count_src;
+	int				count;
+	unsigned int	count_src;
 
 	count = 0;
 	count_src = 0;
