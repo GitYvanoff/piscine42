@@ -6,11 +6,11 @@
 /*   By: ypetruzz <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 18:12:41 by ypetruzz          #+#    #+#             */
-/*   Updated: 2021/07/15 12:44:27 by ypetruzz         ###   ########.fr       */
+/*   Updated: 2021/07/15 13:08:04 by ypetruzz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+//#include <stdio.h>
 
 int	ft_pow(int	x, int	y)
 {
@@ -27,6 +27,13 @@ int	ft_pow(int	x, int	y)
 	return (res);
 }
 
+void	is_minus(int	*minus_count, char	*str, int	*count)
+{
+	if (str[*count] == '-')
+		*minus_count = *minus_count + 1;
+	*count = *count + 1;
+}
+
 int	ft_atoi(char	*str)
 {
 	int	count;
@@ -40,11 +47,10 @@ int	ft_atoi(char	*str)
 	minus_count = 0;
 	count = 0;
 	i = 0;
-	{
-		if (str[count] == '-')
-			minus_count++;
+	while (str[count] == ' ')
 		count++;
-	}
+	while (str[count] == '-' || str[count] == '+')
+		is_minus(&minus_count, str, &count);
 	while (str[count + offset] - '0' >= 0 && str[count + offset] - '0' <= 9)
 		offset++;
 	while (i < offset)
@@ -57,9 +63,9 @@ int	ft_atoi(char	*str)
 	return (res);
 }
 
-int	main(void)
+/*int	main(void)
 {
 	char	test[] = "   ---+---+---12314385ab567";
 
 	printf("%i", ft_atoi(test));
-}
+}*/
