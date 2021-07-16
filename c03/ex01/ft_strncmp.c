@@ -6,7 +6,7 @@
 /*   By: ypetruzz <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 01:55:59 by ypetruzz          #+#    #+#             */
-/*   Updated: 2021/07/15 22:50:01 by ypetruzz         ###   ########.fr       */
+/*   Updated: 2021/07/16 15:19:07 by ypetruzz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	ft_strncmp(char	*s1, char	*s2, unsigned	int	n)
 	unsigned int	count;
 
 	count = 0;
-	while ((*(s1 + count) != '\0' && *(s2 + count) != '\0') && count < n)
+	while ((*(s1 + count) != '\0' || *(s2 + count) != '\0') && count < n)
 	{
 		if (! (*(s1 + count) == *(s2 + count)))
 			return (*(s1 + count) - *(s2 + count));
