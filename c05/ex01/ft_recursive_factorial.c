@@ -6,7 +6,7 @@
 /*   By: ypetruzz <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 22:05:53 by ypetruzz          #+#    #+#             */
-/*   Updated: 2021/07/17 03:03:48 by ypetruzz         ###   ########.fr       */
+/*   Updated: 2021/07/17 22:25:49 by ypetruzz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	ft_recursive_factorial(int	nb)
 	int	n;
 
 	if (nb < 1)
-		return (!nb);
+		return (0);
 	n = 1;
 	while (nb)
 	{
