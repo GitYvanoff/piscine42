@@ -6,7 +6,7 @@
 /*   By: ypetruzz <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 18:12:41 by ypetruzz          #+#    #+#             */
-/*   Updated: 2021/07/15 13:08:04 by ypetruzz         ###   ########.fr       */
+/*   Updated: 2021/07/16 22:50:52 by ypetruzz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int	ft_atoi(char	*str)
 
 /*int	main(void)
 {
-	char	test[] = "   ---+---+---12314385ab567";
+	char	test[] = "   ---+---+---1234ab567";
 
 	printf("%i", ft_atoi(test));
 }*/
