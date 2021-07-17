@@ -6,12 +6,12 @@
 /*   By: ypetruzz <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 22:05:53 by ypetruzz          #+#    #+#             */
-/*   Updated: 2021/07/16 22:07:49 by ypetruzz         ###   ########.fr       */
+/*   Updated: 2021/07/17 03:03:48 by ypetruzz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
+//#include <stdio.h>
+//#include <stdlib.h>
 
 int	ft_recursive_factorial(int	nb)
 {
@@ -29,7 +29,7 @@ int	ft_recursive_factorial(int	nb)
 	return (n);
 }
 
-int	main(int	argc, char	**argv)
+/*int	main(int	argc, char	**argv)
 {
 	int	res;
 	
@@ -38,4 +38,4 @@ int	main(int	argc, char	**argv)
 
 	res = atoi(argv[1]);
 	printf("%i\n", ft_recursive_factorial(res));
-}
+}*/
