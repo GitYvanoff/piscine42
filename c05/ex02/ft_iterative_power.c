@@ -6,7 +6,7 @@
 /*   By: ypetruzz <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 22:11:51 by ypetruzz          #+#    #+#             */
-/*   Updated: 2021/07/17 03:03:16 by ypetruzz         ###   ########.fr       */
+/*   Updated: 2021/07/17 03:07:30 by ypetruzz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int	ft_iterative_power(int	nb, int	power)
 
 	count = 0;
 	res = 1;
+	if (power < 1)
+		return (!power);
 	while (count < power)
 	{
 		res = res * nb;
