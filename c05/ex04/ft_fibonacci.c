@@ -6,12 +6,12 @@
 /*   By: ypetruzz <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/17 22:53:55 by ypetruzz          #+#    #+#             */
-/*   Updated: 2021/07/18 21:59:07 by ypetruzz         ###   ########.fr       */
+/*   Updated: 2021/07/18 22:38:40 by ypetruzz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
+//#include <stdio.h>
+//#include <stdlib.h>
 
 int	ft_fibonacci(int	index)
 {
@@ -24,7 +24,7 @@ int	ft_fibonacci(int	index)
 	return (ft_fibonacci(index - 1) + ft_fibonacci(index - 2));
 }
 
-int	main(int	argc, char	**argv)
+/*int	main(int	argc, char	**argv)
 {
 	int	result;
 
@@ -39,4 +39,4 @@ int	main(int	argc, char	**argv)
 	printf("fibonacci of %d is %d\n", 3, ft_fibonacci(3));
 	printf("fibonacci of %d is %d\n", 15, ft_fibonacci(15));
 	printf("fibonacci of %d is %d\n", 7, ft_fibonacci(7));
-}
+}*/
