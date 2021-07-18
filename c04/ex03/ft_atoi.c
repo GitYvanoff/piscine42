@@ -6,7 +6,7 @@
 /*   By: ypetruzz <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 18:12:41 by ypetruzz          #+#    #+#             */
-/*   Updated: 2021/07/16 22:50:52 by ypetruzz         ###   ########.fr       */
+/*   Updated: 2021/07/18 13:42:29 by ypetruzz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	ft_atoi(char	*str)
 	minus_count = 0;
 	count = 0;
 	i = 0;
-	while (str[count] == ' ')
+	while (str[count] == ' ') // erreur moulinette cuz I am not ignoring white spaces..
 		count++;
 	while (str[count] == '-' || str[count] == '+')
 		is_minus(&minus_count, str, &count);
