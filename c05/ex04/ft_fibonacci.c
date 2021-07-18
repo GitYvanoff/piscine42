@@ -6,38 +6,37 @@
 /*   By: ypetruzz <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/17 22:53:55 by ypetruzz          #+#    #+#             */
-/*   Updated: 2021/07/18 19:22:29 by ypetruzz         ###   ########.fr       */
+/*   Updated: 2021/07/18 21:59:07 by ypetruzz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
-//#include <stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 int	ft_fibonacci(int	index)
 {
-	int	nb1;
-	int	nb2;
-
-	nb2 = 1;
-	nb2 = 1;
 	if (index < 0)
 		return (-1);
-	while (index != 0)
-	{
-		index--;
-		nb1 = nb1 + nb2;
-		nb2 = nb1 - nb2;
-		ft_fibonacci(index);
-	}
-	return (nb1);
+	if (index == 0)
+		return (0);
+	if (index == 1)
+		return (1);
+	return (ft_fibonacci(index - 1) + ft_fibonacci(index - 2));
 }
 
-/*int	main(int	argc, char	**argv)
+int	main(int	argc, char	**argv)
 {
 	int	result;
 
 	if (argc < 2)
 		return (0);
 	result = atoi(argv[1]);	
-	printf("%i", ft_fibonacci(result));
-}*/
+	printf("%d", ft_fibonacci(result));
+	printf("fibonacci of %d is %d\n", -3125, ft_fibonacci(-3125));
+	printf("fibonacci of %d is %d\n", 0, ft_fibonacci(0));
+	printf("fibonacci of %d is %d\n", 1, ft_fibonacci(1));
+	printf("fibonacci of %d is %d\n", 2, ft_fibonacci(2));
+	printf("fibonacci of %d is %d\n", 3, ft_fibonacci(3));
+	printf("fibonacci of %d is %d\n", 15, ft_fibonacci(15));
+	printf("fibonacci of %d is %d\n", 7, ft_fibonacci(7));
+}
