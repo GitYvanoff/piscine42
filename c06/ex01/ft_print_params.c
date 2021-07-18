@@ -1,16 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_program_name.c                            :+:      :+:    :+:   */
+/*   ft_print_params.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ypetruzz <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/18 13:48:20 by ypetruzz          #+#    #+#             */
-/*   Updated: 2021/07/18 13:58:03 by ypetruzz         ###   ########.fr       */
+/*   Created: 2021/07/18 13:52:05 by ypetruzz          #+#    #+#             */
+/*   Updated: 2021/07/18 13:57:36 by ypetruzz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
 
 void	ft_putstr(char *str)
 {
@@ -26,7 +31,15 @@ void	ft_putstr(char *str)
 
 int	main(int	argc, char	**argv)
 {
-	if (argc != 1)
+	int	count;
+
+	count = 1;
+	if (argc < 2)
 		return (1);
-	ft_putstr(argv[0]);
+	while (count < argc)
+	{
+		ft_putstr(argv[count]);
+		ft_putchar('\n');
+		count++;
+	}
 }
