@@ -6,7 +6,7 @@
 /*   By: ypetruzz <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/17 22:53:55 by ypetruzz          #+#    #+#             */
-/*   Updated: 2021/07/18 00:33:41 by ypetruzz         ###   ########.fr       */
+/*   Updated: 2021/07/18 19:22:29 by ypetruzz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,14 @@ int	ft_fibonacci(int	index)
 
 	nb2 = 1;
 	nb2 = 1;
-	index--;
+	if (index < 0)
+		return (-1);
 	while (index != 0)
 	{
+		index--;
 		nb1 = nb1 + nb2;
 		nb2 = nb1 - nb2;
-		ft_fibonacci(index--);
+		ft_fibonacci(index);
 	}
 	return (nb1);
 }
