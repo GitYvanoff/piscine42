@@ -6,12 +6,12 @@
 /*   By: ypetruzz <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 16:48:53 by ypetruzz          #+#    #+#             */
-/*   Updated: 2021/07/19 19:07:45 by ypetruzz         ###   ########.fr       */
+/*   Updated: 2021/07/19 19:39:38 by ypetruzz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <stdlib.h>
+//#include <string.h>
+//#include <stdlib.h>
 #include <stdio.h>
 
 int	*ft_range(int	min, int	max)
@@ -40,7 +40,7 @@ int	*ft_range(int	min, int	max)
 	return (str);
 }
 
-int	main(int	ac, char	**av)
+/*int	main(int	ac, char	**av)
 {
 	int	*tab;
 	int	count;
@@ -55,4 +55,4 @@ int	main(int	ac, char	**av)
 		count++;
 	}
 	return (0);
-}
+}*/
