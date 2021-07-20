@@ -6,7 +6,7 @@
 /*   By: ypetruzz <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 16:48:53 by ypetruzz          #+#    #+#             */
-/*   Updated: 2021/07/19 19:39:38 by ypetruzz         ###   ########.fr       */
+/*   Updated: 2021/07/20 19:08:36 by ypetruzz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	*ft_range(int	min, int	max)
 		count++;
 		min++;
 	}
-	str = malloc(sizeof (int) * count);
+	str = malloc(sizeof (int) * count - 1);
 	count = 0;
 	while (tmp < max)
 	{
