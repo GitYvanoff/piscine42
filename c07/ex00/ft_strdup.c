@@ -6,7 +6,7 @@
 /*   By: ypetruzz <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 00:22:02 by ypetruzz          #+#    #+#             */
-/*   Updated: 2021/07/21 16:40:17 by ypetruzz         ###   ########.fr       */
+/*   Updated: 2021/07/21 23:59:52 by ypetruzz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ char	*ft_strdup(char	*src)
 	char	*res;
 
 	size = ft_strlen(src);
-	str =  malloc(sizeof (char) * size);
+	str = malloc(sizeof(char) * size);
 	if (str == NULL)
-		return ((void *)0)
+		return ((void *) 0);
 	res = str;
 	while (*src != '\0')
 	{
