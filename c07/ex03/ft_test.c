@@ -1,5 +1,40 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_test.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ypetruzz <marvin@42lausanne.ch>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/07/21 13:14:17 by ypetruzz          #+#    #+#             */
+/*   Updated: 2021/07/21 13:51:52 by ypetruzz         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdlib.h>
 #include <stdio.h>
+
+int	ft_strlen_multi(char **str)
+{
+	int	count;
+	int i;
+	int	total;
+
+	i = 0;
+	count = 0;
+	total = 0;
+	while (str[count][i] != '\0')
+	{
+		while (str[count][i] != '\0')
+		{
+			i++;
+			total++;
+		}
+		count++;
+		total++;
+		i = 0;
+	}
+	return (total);
+}
 
 int		ft_strlen(char *str)
 {
@@ -26,7 +61,7 @@ void	ft_put_sep(char **concatptr, char *sep)
 	}
 }
 
-void	concat(int size, char *concatptr, char **strs, char *sep)
+void	ft_concat(int size, char *concatptr, char **strs, char *sep)
 {
 	int n;
 	int i;
@@ -57,7 +92,7 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 
 	if (size)
 	{
-		nbchar = (strs[size - 1] - *strs) + ft_strlen(strs[size - 1]) + 1;
+		nbchar = ft_strlen_multi(strs);
 		concat = (char *)malloc(nbchar + ((ft_strlen(sep) - 1) * (size - 1)));
 	}
 	else
@@ -66,24 +101,20 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 		*concat = 0;
 		return (concat);
 	}
-	concatptr vim = concat;
-	concat(size, concatptr, strs, sep);
+	concatptr = concat;
+	ft_concat(size, concatptr, strs, sep);
 	return (concat);
 }
-
-#include <stdio.h>
-
-char	*ft_strjoin(int size, char **strs, char *sep);
 
 int main()
 {
 	char *tablo[6];
 	tablo[0] = "coucou";
-	tablo[1] = "bite";
+	tablo[1] = "tanguy";
 	tablo[2] = "fesse";
 	tablo[3] = "de";
 	tablo[4] = "la";
 	tablo[5] = "merde";
-	printf("%s\n", ft_strjoin(6, tablo, "!"));
+	printf("%s\n", ft_strjoin(6, tablo, " sep "));
 	return (0);
 }
