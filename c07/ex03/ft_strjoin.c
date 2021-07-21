@@ -6,7 +6,7 @@
 /*   By: ypetruzz <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/21 13:14:17 by ypetruzz          #+#    #+#             */
-/*   Updated: 2021/07/21 13:51:52 by ypetruzz         ###   ########.fr       */
+/*   Updated: 2021/07/21 14:21:46 by ypetruzz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 int	ft_strlen_multi(char **str)
 {
 	int	count;
-	int i;
+	int	i;
 	int	total;
 
 	i = 0;
@@ -36,7 +36,7 @@ int	ft_strlen_multi(char **str)
 	return (total);
 }
 
-int		ft_strlen(char *str)
+int	ft_strlen(char	*str)
 {
 	char	*ptr;
 	int		i;
@@ -63,8 +63,8 @@ void	ft_put_sep(char **concatptr, char *sep)
 
 void	ft_concat(int size, char *concatptr, char **strs, char *sep)
 {
-	int n;
-	int i;
+	int	n;
+	int	i;
 
 	n = 0;
 	while (n < size)
@@ -106,7 +106,7 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	return (concat);
 }
 
-int main()
+/*int main()
 {
 	char *tablo[6];
 	tablo[0] = "coucou";
@@ -117,4 +117,4 @@ int main()
 	tablo[5] = "merde";
 	printf("%s\n", ft_strjoin(6, tablo, " sep "));
 	return (0);
-}
+}*/
