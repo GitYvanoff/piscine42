@@ -31,7 +31,7 @@ int	ft_ultimate_range(int	**range, int	min, int	max)
 	}
 	*range = malloc(sizeof(int) * count);
 	if (*range == NULL)
-		return (0);
+		return (-1);
 	i = 0;
 	while ((tmp + i) < max)
 	{
