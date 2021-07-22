@@ -6,7 +6,7 @@
 /*   By: ypetruzz <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/21 13:14:17 by ypetruzz          #+#    #+#             */
-/*   Updated: 2021/07/21 15:12:20 by ypetruzz         ###   ########.fr       */
+/*   Updated: 2021/07/22 02:23:39 by ypetruzz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ void	ft_concat(int size, char *concatptr, char **strs, char *sep)
 			ft_put_sep(&concatptr, sep);
 		n++;
 	}
+	*concatptr = '\0';
 }
 
 char	*ft_strjoin(int size, char **strs, char *sep)
@@ -93,7 +94,7 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	if (size)
 	{
 		nbchar = ft_strlen_multi(strs);
-		concat = (char *)malloc(nbchar + ((ft_strlen(sep) - 1) * (size - 1)));
+		concat = (char *)malloc(nbchar + ((ft_strlen(sep) - 1) * (size - 1)) + 1);
 	}
 	else
 	{
