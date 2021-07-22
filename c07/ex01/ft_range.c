@@ -6,7 +6,7 @@
 /*   By: ypetruzz <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 16:48:53 by ypetruzz          #+#    #+#             */
-/*   Updated: 2021/07/22 02:35:52 by ypetruzz         ###   ########.fr       */
+/*   Updated: 2021/07/22 02:40:05 by ypetruzz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,31 +14,24 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int	*ft_range(int	min, int	max)
+int	*ft_range(int min, int max)
 {
-	int	count;
-	int	*str;
-	int	tmp;
+	int	*tab;
+	int	i;
 
-	tmp = min;
-	count = 0;
 	if (min >= max)
 		return (0);
+	tab = (int *)malloc(sizeof(int) * (max - min));
+	if (tab == NULL)
+		return (0);
+	i = 0;
 	while (min < max)
 	{
-		count++;
+		tab[i] = min;
 		min++;
+		i++;
 	}
-	str = malloc(sizeof (int) * count);
-	count = 0;
-	while (tmp < max)
-	{
-		str[count] = tmp;
-		count++;
-		tmp++;
-	}
-	str[count] = '\0';
-	return (str);
+	return (tab);
 }
 
 /*int	main(int	ac, char	**av)
