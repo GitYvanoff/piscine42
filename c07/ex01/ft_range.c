@@ -6,12 +6,12 @@
 /*   By: ypetruzz <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 16:48:53 by ypetruzz          #+#    #+#             */
-/*   Updated: 2021/07/20 19:08:36 by ypetruzz         ###   ########.fr       */
+/*   Updated: 2021/07/22 02:35:52 by ypetruzz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <string.h>
-//#include <stdlib.h>
+#include <string.h>
+#include <stdlib.h>
 #include <stdio.h>
 
 int	*ft_range(int	min, int	max)
@@ -29,7 +29,7 @@ int	*ft_range(int	min, int	max)
 		count++;
 		min++;
 	}
-	str = malloc(sizeof (int) * count - 1);
+	str = malloc(sizeof (int) * count);
 	count = 0;
 	while (tmp < max)
 	{
@@ -37,6 +37,7 @@ int	*ft_range(int	min, int	max)
 		count++;
 		tmp++;
 	}
+	str[count] = '\0';
 	return (str);
 }
 
