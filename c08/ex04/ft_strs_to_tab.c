@@ -6,7 +6,7 @@
 /*   By: ypetruzz <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 22:54:04 by ypetruzz          #+#    #+#             */
-/*   Updated: 2021/07/25 02:15:42 by ypetruzz         ###   ########.fr       */
+/*   Updated: 2021/07/26 01:20:01 by ypetruzz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ char	*ft_strdup(char	*src)
 	char	*res;
 
 	size = ft_strlen(src);
-	str = malloc(sizeof(char) * size);
+	str = malloc(sizeof(char) * (size + 1));
 	if (str == NULL)
 		return ((void *) 0);
 	res = str;
@@ -83,5 +83,4 @@ struct	s_stock_str	*ft_strs_to_tab(int ac, char **av)
 		printf("--copy :%s\n\n", ici[count].copy);
 		count++;
 	}
-}
-*/
+}*/
