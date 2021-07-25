@@ -6,16 +6,16 @@
 /*   By: ypetruzz <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/21 21:04:50 by ypetruzz          #+#    #+#             */
-/*   Updated: 2021/07/21 21:21:17 by ypetruzz         ###   ########.fr       */
+/*   Updated: 2021/07/25 22:44:49 by ypetruzz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#infdef FT_BOOLEAN_H
+#ifndef FT_BOOLEAN_H
 # define FT_BOOLEAN_H
 
 # include <unistd.h>
 
-typedef	char	t_bool;
+typedef char	t_bool;
 # define FALSE 0
 # define TRUE 1
 
