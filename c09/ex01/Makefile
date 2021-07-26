@@ -1,4 +1,4 @@
-SRCS		= ft_putchar ft_swap.c ft_putstr.c ft_strlen.c ft_strcmp.c
+SRCS		= ft_putchar.c ft_swap.c ft_putstr.c ft_strlen.c ft_strcmp.c
 
 OBJS		= $(addprefix srcs/, ${SRCS: .c=.o})
 
