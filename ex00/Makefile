@@ -33,6 +33,9 @@ ${EXEC}:	${OBJS}
 clean:
 				${RM} ${OBJS}
 
+gen:	all
+				perl map_gen 30 10 1 | ./bsq
+
 fclean:	clean
 				${RM} ${EXEC}	
 
