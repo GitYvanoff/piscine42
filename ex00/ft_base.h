@@ -18,7 +18,7 @@
 #include <stdlib.h>
 #include <stdio.h>// A DELETE
 
-int		ft_map_reader(int ac, char **av, int *error);
+int		ft_map_reader(int ac, char **av);
 char 	*ft_read_console(void);
 char	*ft_strjoin(int size, char **strs, char *sep);
 int		ft_tablen(int size, char **str);

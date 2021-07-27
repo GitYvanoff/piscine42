@@ -51,7 +51,7 @@ int    validate_char(char c, char *allowed)
     return (c == allowed[0] || c == allowed[1]);
 }
 
-int    map_validator(char **map, int lines_count)
+int    is_map_valid(char **map, int lines_count)
 {
     int expected_width;
     int y;
@@ -74,7 +74,7 @@ int    map_validator(char **map, int lines_count)
     return (0);
 }
 
-int     ft_map_reader(int ac, char **av, int *error_flag)
+int     ft_map_reader(int ac, char **av)
 {
 	char *map_tmp; //code smell
 	char *first_line;
@@ -88,7 +88,8 @@ int     ft_map_reader(int ac, char **av, int *error_flag)
 		first_line = get_first_line(map_tmp);
 		printf("\n Je suis la premiere ligne : %s \n", first_line);
         map = map_loader(map_tmp, 10);
-        *error_flag = map_validator(map, 10);
+        if (!is_map_valid(map, 10))
+            return (1);
 	}
 	else
 	{
