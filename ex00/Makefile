@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-SRCS	= main.c ft_map_reader.c string.c ft_read_console.c
+SRCS	= main.c ft_map_reader.c string.c ft_read_console.c ft_atoi.c
 
 OBJS	= ${SRCS:.c=.o}
 
@@ -34,7 +34,7 @@ clean:
 				${RM} ${OBJS}
 
 gen:	all
-				perl map_gen 30 10 1 | ./bsq
+				perl map_gen 35 300 1 | ./bsq
 
 fclean:	clean
 				${RM} ${EXEC}	

@@ -62,10 +62,3 @@ int	ft_atoi(char	*str)
 		res = res * -1;
 	return (res);
 }
-
-/*int	main(void)
-{
-	char	test[] = "   ---+---+---1234ab567";
-
-	printf("%i", ft_atoi(test));
-}*/

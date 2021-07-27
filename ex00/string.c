@@ -115,3 +115,10 @@ char	*ft_strdup_stop(char	*src, char	stop)
 	*str = '\0';
 	return (res);
 }
+
+char    *go_to_char(char *str, char c)
+{
+    while (*str && *str != c)
+        str++;
+    return (str);
+}

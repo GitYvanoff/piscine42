@@ -20,11 +20,11 @@ char	*get_first_line(char	*map)
 	return(first_line);
 }
 
-char    *go_to_char(char *str, char c)
+int	get_lines_count(char	*first_line)
 {
-    while (*str && *str != c)
-        str++;
-    return (str);
+	if (first_line[0] > '9' || first_line[0] < '0')
+		return(-1);
+	return(ft_atoi(first_line));
 }
 
 char    **map_loader(char *str, int lines_count)
@@ -78,7 +78,8 @@ int     ft_map_reader(int ac, char **av)
 {
 	char *map_tmp; //code smell
 	char *first_line;
-    char **map;
+    	char **map;
+	int	lines_count;
 
 
 	if (ac >= 1)
@@ -87,9 +88,10 @@ int     ft_map_reader(int ac, char **av)
 		printf("je suis la map\n %s", map_tmp);
 		first_line = get_first_line(map_tmp);
 		printf("\n Je suis la premiere ligne : %s \n", first_line);
-        map = map_loader(map_tmp, 10);
-        if (!is_map_valid(map, 10))
-            return (1);
+		lines_count = get_lines_count(first_line);
+		map = map_loader(map_tmp, lines_count);
+        	if (!is_map_valid(map, lines_count))
+            		return (1);
 	}
 	else
 	{

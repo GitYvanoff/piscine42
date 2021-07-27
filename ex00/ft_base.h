@@ -23,5 +23,8 @@ char 	*ft_read_console(void);
 char	*ft_strjoin(int size, char **strs, char *sep);
 int		ft_tablen(int size, char **str);
 char    *get_first_line(char    *map);
+int	ft_pow(int	x, int	y);
+void    is_minus(int    *minus_count, char      *str, int       *count);
+int     ft_atoi(char    *str);
 
 #endif

@@ -23,5 +23,6 @@ char    *ft_strdup(char *src);
 char    *ft_strdup_stop(char *src, char	stop);
 int     ft_strlen(char *str);
 int     ft_strlen_stop(char *str, char	stop);
+char    *go_to_char(char *str, char c);
 
 #endif
