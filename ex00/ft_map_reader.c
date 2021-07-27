@@ -65,7 +65,7 @@ int	is_map_valid(char	**map, int	lines_count, char	*allowed_chars) //TODO:add a 
 
 char	*get_allowed_chars(char	*first_line)
 {
-	char	*allowed_chars;	
+	char	*allowed_chars;
 	int		count;
 	int		count_al;
 
