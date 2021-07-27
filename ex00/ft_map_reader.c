@@ -46,13 +46,35 @@ char    **map_loader(char *str, int lines_count)
     return (map);
 }
 
-void    map_validator(char **map)
+int    validate_char(char c, char *allowed)
 {
-
-    return ;
+    return (c == allowed[0] || c == allowed[1]);
 }
 
-int     ft_map_reader(int ac, char **av)
+int    map_validator(char **map, int lines_count)
+{
+    int expected_width;
+    int y;
+    int x;
+    int line_length;
+
+    y = 0;
+    expected_width = ft_strlen(map[y]);
+    while (y < lines_count)
+    {
+        line_length = ft_strlen(map[y]);
+        x = 0;
+        if (line_length != expected_width)
+            return (1);
+        while (x < line_length)
+            if (!validate_char(map[y][x++], ".o")) //TODO: send allowed chars
+                return (1);
+        y++;
+    }
+    return (0);
+}
+
+int     ft_map_reader(int ac, char **av, int *error_flag)
 {
 	char *map_tmp; //code smell
 	char *first_line;
@@ -66,7 +88,7 @@ int     ft_map_reader(int ac, char **av)
 		first_line = get_first_line(map_tmp);
 		printf("\n Je suis la premiere ligne : %s \n", first_line);
         map = map_loader(map_tmp, 10);
-        map_validator(map, 10);
+        *error_flag = map_validator(map, 10);
 	}
 	else
 	{
