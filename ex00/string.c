@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "string.h"
+#include "ft_base.h"
 
 void	ft_putchar(char c)
 {
@@ -59,4 +60,58 @@ int	ft_strlen(char *str)
 		count++;
 	}
 	return (count);
+}
+
+int	ft_strlen_stop(char	*str, char	stop)
+{
+	int	count;
+
+	count = 0;
+	while (*(str + count) != stop)
+	{
+		count++;
+	}
+	return (count);
+}
+
+char	*ft_strdup(char	*src)
+{
+	int		size;
+	char	*str;
+	char	*res;
+
+	size = ft_strlen(src);
+	str = malloc(sizeof(char) * size);
+	if (str == NULL)
+		return ((void *) 0);
+	res = str;
+	while (*src != '\0')
+	{
+		*str = *src;
+		++str;
+		++src;
+	}
+	*str = '\0';
+	return (res);
+}
+
+char	*ft_strdup_stop(char	*src, char	stop)
+{
+	int		size;
+	char	*str;
+	char	*res;
+
+	size = ft_strlen(src);
+	str = malloc(sizeof(char) * size);
+	if (str == NULL)
+		return ((void *) 0);
+	res = str;
+	while (*src != stop)
+	{
+		*str = *src;
+		++str;
+		++src;
+	}
+	*str = '\0';
+	return (res);
 }

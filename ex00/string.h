@@ -19,5 +19,9 @@ void	ft_putchar(char	c);
 void	ft_putnbr(int	nb);
 void	ft_putstr(char *str);
 int		ft_strlen(char *str);
+char    *ft_strdup(char *src);
+char    *ft_strdup_stop(char *src, char	stop);
+int     ft_strlen(char *str);
+int     ft_strlen_stop(char *str, char	stop);
 
 #endif

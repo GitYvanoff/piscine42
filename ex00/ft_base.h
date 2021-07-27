@@ -19,8 +19,9 @@
 #include <stdio.h>// A DELETE
 
 int		ft_map_reader(int ac, char **av);
-char 	**ft_read_console(void);
+char 	*ft_read_console(void);
 char	*ft_strjoin(int size, char **strs, char *sep);
 int		ft_tablen(int size, char **str);
+char    *get_first_line(char    *map);
 
 #endif

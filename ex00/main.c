@@ -13,7 +13,6 @@
 
 int	main(int ac, char **av)
 {
-		printf("abcde\n");
 	(void)av;
 	if (ac >= 1)
 	{
