@@ -51,7 +51,7 @@ int    validate_char(char c, char *allowed)
     return (c == allowed[0] || c == allowed[1]);
 }
 
-int    is_map_valid(char **map, int lines_count)
+int    is_map_valid(char **map, int lines_count) //TODO:add a param to send valid chars
 {
     int expected_width;
     int y;
