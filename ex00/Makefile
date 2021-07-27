@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-SRCS	= main.c ft_map_reader.c string.c ft_read_console.c ft_atoi.c
+SRCS	= main.c ft_map_reader.c string.c ft_read_console.c ft_atoi.c solve.c
 
 OBJS	= ${SRCS:.c=.o}
 
