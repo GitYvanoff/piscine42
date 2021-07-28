@@ -15,6 +15,7 @@
 int	main(int ac, char **av)
 {
     int fd;
+    char **map;
 
     if (ac > 1)
         fd = open(av[1], O_RDONLY);
@@ -25,7 +26,7 @@ int	main(int ac, char **av)
         write(1, "Map Error!\n", 11);
         return (0);
     }
-    ft_map_reader(fd);
+    ft_map_reader(fd, &map);
     close(fd);
     return (0);
 }

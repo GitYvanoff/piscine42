@@ -1,20 +1,23 @@
 #include "ft_base.h"
 #include "string.h"
 
-char *get_first_line(char *map) {
+char *get_first_line(char *map)
+{
     char *first_line;
 
     first_line = ft_strdup_stop(map, '\n');
     return (first_line);
 }
 
-int get_lines_count(char *first_line) {
+int get_lines_count(char *first_line)
+{
     if (first_line[0] > '9' || first_line[0] < '0')
         return (-1);
     return (ft_atoi(first_line));
 }
 
-char **map_loader(char *str, int lines_count) {
+char **map_loader(char *str, int lines_count)
+{
     char **map;
     int y;
 
@@ -31,7 +34,8 @@ char **map_loader(char *str, int lines_count) {
     return (map);
 }
 
-int validate_char(char c, char *allowed) {
+int validate_char(char c, char *allowed)
+{
     return (c == allowed[0] || c == allowed[1]);
 }
 
@@ -57,7 +61,8 @@ int is_map_valid(char **map, int lines_count, char *allowed_chars) //TODO:add a 
     return (0);
 }
 
-char *get_allowed_chars(char *first_line) {
+char *get_allowed_chars(char *first_line)
+{
     char *allowed_chars;
     int count;
     int count_al;
@@ -76,10 +81,10 @@ char *get_allowed_chars(char *first_line) {
     return (allowed_chars);
 }
 
-int ft_map_reader(int fd) {
+int ft_map_reader(int fd, char ***map)
+{
     char *map_tmp; //code smell
     char *first_line;
-    char **map;
     int lines_count;
     char *allowed_chars;
 
@@ -87,8 +92,8 @@ int ft_map_reader(int fd) {
     first_line = get_first_line(map_tmp);
     lines_count = get_lines_count(first_line);
     allowed_chars = get_allowed_chars(first_line);
-    map = map_loader(map_tmp, lines_count);
-    if (!is_map_valid(map, lines_count, allowed_chars))
+    *map = map_loader(map_tmp, lines_count);
+    if (!is_map_valid(*map, lines_count, allowed_chars))
         return (1);
     return (0);
 }
