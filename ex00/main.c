@@ -11,15 +11,20 @@
 /* ************************************************************************** */
 #include "ft_base.h"
 
+
 int	main(int ac, char **av)
 {
-	(void)av;
-	if (ac >= 1)
-	{
-		ft_map_reader(ac, av);
-	}
-	else
-	{
-	}
-	return (0);
+    int fd;
+
+    if (ac >= 1)
+        fd = open(av[1], O_RDONLY);
+    else
+        fd = 0;
+    if (fd < 0)
+    {
+        write(1, "Map Error!\n", 11);
+        return (0);
+    }
+    ft_map_reader(fd);
+    return (0);
 }

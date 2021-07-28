@@ -24,5 +24,7 @@ char    *ft_strdup_stop(char *src, char	stop);
 int     ft_strlen(char *str);
 int     ft_strlen_stop(char *str, char	stop);
 char    *go_to_char(char *str, char c);
+char	*ft_strcat(char	*dest, char	*src);
+char	*ft_strcpy(char *dest, char *src);
 
 #endif

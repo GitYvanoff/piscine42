@@ -18,8 +18,8 @@
 #include <stdlib.h>
 #include <stdio.h>// A DELETE
 
-int		ft_map_reader(int ac, char **av);
-char 	*ft_read_console(void);
+int		ft_map_reader(int fd);
+char 	*load_map_from_fd(int fd);
 char    *ft_strjoin(char *s1, char *s2);
 int		ft_tablen(int size, char **str);
 char    *get_first_line(char    *map);
