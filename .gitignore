@@ -19,3 +19,4 @@ shell01/ex06/5
 shell01/ex06/6
 *a.out
 *.swp
+*.o
