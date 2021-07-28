@@ -6,7 +6,7 @@
 /*   By: bcolin <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 14:04:41 by bcolin            #+#    #+#             */
-/*   Updated: 2021/07/27 17:31:02 by ypetruzz         ###   ########.fr       */
+/*   Updated: 2021/07/28 10:46:13 by ypetruzz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_base.h"
@@ -27,10 +27,10 @@ int	get_lines_count(char	*first_line)
 	return(ft_atoi(first_line));
 }
 
-char    **map_loader(char *str, int lines_count)
+char	**map_loader(char	*str, int	lines_count)
 {
-    char    **map;
-    int     y;
+    char	**map;
+    int		y;
 
     map = (char **)malloc(sizeof(char *) * lines_count);
     str = go_to_char(str, '\n');
@@ -46,17 +46,17 @@ char    **map_loader(char *str, int lines_count)
     return (map);
 }
 
-int    validate_char(char c, char *allowed)
+int	validate_char(char	c, char	*allowed)
 {
     return (c == allowed[0] || c == allowed[1]);
 }
 
-int    is_map_valid(char **map, int lines_count) //TODO:add a param to send valid chars
+int	is_map_valid(char	**map, int	lines_count) //TODO:add a param to send valid chars
 {
-    int expected_width;
-    int y;
-    int x;
-    int line_length;
+    int	expected_width;
+    int	y;
+    int	x;
+    int	line_length;
 
     y = 0;
     expected_width = ft_strlen(map[y]);
@@ -74,12 +74,12 @@ int    is_map_valid(char **map, int lines_count) //TODO:add a param to send vali
     return (0);
 }
 
-int     ft_map_reader(int ac, char **av)
+int	ft_map_reader(int	ac, char	**av)
 {
-	char *map_tmp; //code smell
-	char *first_line;
-    	char **map;
-	int	lines_count;
+	char	*map_tmp; //code smell
+	char	*first_line;
+    char	**map;
+	int		lines_count;
 
 
 	if (ac >= 1)

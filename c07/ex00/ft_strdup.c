@@ -33,7 +33,7 @@ char	*ft_strdup(char	*src)
 	char	*res;
 
 	size = ft_strlen(src);
-	str = malloc(sizeof(char) * size);
+    str = malloc(sizeof(char) * (size + 1);
 	if (str == NULL)
 		return ((void *) 0);
 	res = str;

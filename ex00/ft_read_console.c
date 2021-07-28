@@ -16,14 +16,14 @@ char *ft_read_console()
 {
 	char 	*map;
 	char 	buf[BUFFSIZE];
-	int		read_v;
-	int		count;
+	int	read_v;
 	
-	count = -1;
 	read_v = 1;
-	read_v = read(0 , buf, BUFFSIZE);
-	map = (char*)malloc((read_v + 1) * sizeof(char));
-	while (count++ < read_v)
-		map[count] = buf[count];
+	while (read_v > 0)
+	{
+		read_v = read(0 , buf, BUFFSIZE);
+		map = malloc(sizeof(char) * read_v + 1);
+		map = ft_strjoin(map, buf);
+	}
 	return (map);
 }

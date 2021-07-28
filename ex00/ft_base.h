@@ -6,7 +6,7 @@
 /*   By: bcolin <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 14:06:37 by bcolin            #+#    #+#             */
-/*   Updated: 2021/07/27 16:45:28 by ypetruzz         ###   ########.fr       */
+/*   Updated: 2021/07/28 10:42:49 by ypetruzz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@
 
 int		ft_map_reader(int ac, char **av);
 char 	*ft_read_console(void);
-char	*ft_strjoin(int size, char **strs, char *sep);
+char    *ft_strjoin(char *s1, char *s2);
 int		ft_tablen(int size, char **str);
 char    *get_first_line(char    *map);
-int	ft_pow(int	x, int	y);
+int		ft_pow(int	x, int	y);
 void    is_minus(int    *minus_count, char      *str, int       *count);
 int     ft_atoi(char    *str);
 

@@ -6,11 +6,11 @@
 #    By: bcolin <marvin@42lausanne.ch>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/27 12:45:17 by bcolin            #+#    #+#              #
-#    Updated: 2021/07/27 13:03:22 by bcolin           ###   ########.fr        #
+#    Updated: 2021/07/28 10:41:29 by ypetruzz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS	= main.c ft_map_reader.c string.c ft_read_console.c ft_atoi.c solve.c
+SRCS	= main.c ft_strjoin.c ft_map_reader.c string.c ft_read_console.c ft_atoi.c
 
 OBJS	= ${SRCS:.c=.o}
 
@@ -34,7 +34,7 @@ clean:
 				${RM} ${OBJS}
 
 gen:	all
-				perl map_gen 35 300 1 | ./bsq
+				perl map_gen 35 30 1 | ./bsq
 
 fclean:	clean
 				${RM} ${EXEC}	
