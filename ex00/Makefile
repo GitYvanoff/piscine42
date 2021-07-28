@@ -6,7 +6,7 @@
 #    By: bcolin <marvin@42lausanne.ch>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/27 12:45:17 by bcolin            #+#    #+#              #
-#    Updated: 2021/07/28 14:36:26 by bcolin           ###   ########.fr        #
+#    Updated: 2021/07/28 16:25:08 by ypetruzz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ clean:
 				${RM} ${OBJS}
 
 gen:	all
-				perl map_gen 200 200 1 | ./bsq
+				perl map_gen 20 20	1 | ./bsq
 
 fclean:	clean
 				${RM} ${EXEC}	
