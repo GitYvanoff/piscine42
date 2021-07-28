@@ -13,9 +13,23 @@
 #include "string.h"
 #define BUFFSIZE 4098
 
+
+char *resize_str(char *str, int size)
+{
+    char *swap;
+
+    swap = ft_strdup(str);
+    if (str != NULL)
+        free(str);
+    str = (char *)malloc(sizeof(char) * size);
+    str = ft_strcpy(str, swap);
+    free(swap);
+    return (str);
+}
+
+
 char *load_map_from_fd(int fd) {
     char    *result;
-    char    *swap;
     char    buf[BUFFSIZE + 1];
     int     read_return;
     int     size;
@@ -23,20 +37,12 @@ char *load_map_from_fd(int fd) {
     size = 1;
     result = (char *)malloc(sizeof(char) * 1);
     result[0] = 0;
-    swap = NULL;
     while ((read_return = read(fd, buf, BUFFSIZE)) > 0)
     {
         buf[read_return] = 0;
         size += read_return;
-        if (swap != NULL)
-            free(swap);
-        swap = (char *)malloc(sizeof(char) * (size + 1));
-        swap = ft_strcpy(swap, result);
-        swap = ft_strcat(swap, buf);
-        free(result);
-        result = ft_strdup(swap);
+        result = resize_str(result, size);
+        result = ft_strcat(result, buf);
     }
-    if (swap != NULL)
-        free(swap);
     return result;
 }
