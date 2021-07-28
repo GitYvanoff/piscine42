@@ -16,7 +16,7 @@
 int get_fd_or_exit(char *path) {
     int fd;
 
-    if ((fd = open(path, O_RDONLY)) < 0);
+    if ((fd = open(path, O_RDONLY)) < 0)
     {
         write(1, "Map Error!\n", 11);
         exit(0);
@@ -31,6 +31,7 @@ int main(int ac, char **av) {
     int to_solve;
     int coord_x;
     int coord_y;
+    int max_found;
 
     to_solve = 1;
     if (ac > 1)
@@ -43,9 +44,9 @@ int main(int ac, char **av) {
 
         char obstacle = 'o';
         // char empty = '.';
-        if (solve(map, 10, 30, obstacle, &coord_x, &coord_y))
+        if (solve(map, 10, 30, obstacle, &coord_x, &coord_y, &max_found))
             // draw_map(map, coord_x, coord_y', obstacle, empty);
-            printf("%d %d\n", coord_x, coord_y);
+            printf("row: %d column: %d square_size: %d\n", coord_x, coord_y, max_found);
 
         close(fd);
         to_solve++;

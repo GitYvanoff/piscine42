@@ -29,15 +29,15 @@ int solve(
     int width,
     int height,
     char obstacle,
+    int *max_found,
     int *max_x,
     int *max_y)
 {
     int column;
     int row;
     int square_size;
-    int max_found;
 
-    max_found = -1;
+    *max_found = -1;
 
     row = -1;
     while (++row < height)
@@ -56,9 +56,11 @@ int solve(
                      row,
                      column,
                      square_size,
-                     obstacle))
+                     obstacle)
+                    && square_size > *max_found
+                )
                 {
-                    max_found = square_size;
+                    *max_found = square_size;
                     *max_x = column;
                     *max_y = row;
                 }
@@ -66,5 +68,5 @@ int solve(
         }
     }
 
-    return (max_found > 0);
+    return (*max_found > 0);
 }
