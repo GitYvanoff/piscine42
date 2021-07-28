@@ -16,7 +16,7 @@ int	main(int ac, char **av)
 {
     int fd;
 
-    if (ac >= 1)
+    if (ac > 1)
         fd = open(av[1], O_RDONLY);
     else
         fd = 0;
@@ -26,5 +26,6 @@ int	main(int ac, char **av)
         return (0);
     }
     ft_map_reader(fd);
+    close(fd);
     return (0);
 }

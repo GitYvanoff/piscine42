@@ -84,13 +84,9 @@ int ft_map_reader(int fd) {
     char *allowed_chars;
 
     map_tmp = load_map_from_fd(fd);
-    printf("je suis la map\n %s", map_tmp);
     first_line = get_first_line(map_tmp);
-    printf("\n Je suis la premiere ligne : %s \n", first_line);
     lines_count = get_lines_count(first_line);
-    printf("Je suis le nombre de lignes %d\n", lines_count);
     allowed_chars = get_allowed_chars(first_line);
-    printf("Nous sommes les allowed chars :%s\n", allowed_chars);
     map = map_loader(map_tmp, lines_count);
     if (!is_map_valid(map, lines_count, allowed_chars))
         return (1);
