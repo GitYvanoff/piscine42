@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-SRCS	= main.c ft_strjoin.c ft_map_reader.c string.c load_map_from_fd.c ft_atoi.c
+SRCS	= main.c ft_strjoin.c ft_map_reader.c string.c load_map_from_fd.c ft_atoi.c solve.c
 
 OBJS	= ${SRCS:.c=.o}
 
@@ -37,7 +37,7 @@ gen:	all
 				./bsq "map200_200"
 
 fclean:	clean
-				${RM} ${EXEC}	
+				${RM} ${EXEC}
 
 re:		fclean all
 
