@@ -1,13 +1,13 @@
 /* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   string.c                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: ypetruzz <marvin@42lausanne.ch>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/27 12:41:45 by ypetruzz          #+#    #+#             */
-/*   Updated: 2021/07/27 12:49:22 by ypetruzz         ###   ########.fr       */
-/*                                                                            */
+/*																			*/
+/*														:::	  ::::::::   */
+/*   string.c										   :+:	  :+:	:+:   */
+/*													+:+ +:+		 +:+	 */
+/*   By: ypetruzz <marvin@42lausanne.ch>			+#+  +:+	   +#+		*/
+/*												+#+#+#+#+#+   +#+		   */
+/*   Created: 2021/07/27 12:41:45 by ypetruzz		  #+#	#+#			 */
+/*   Updated: 2021/07/27 12:49:22 by ypetruzz		 ###   ########.fr	   */
+/*																			*/
 /* ************************************************************************** */
 
 #include "string.h"
@@ -116,39 +116,39 @@ char	*ft_strdup_stop(char	*src, char	stop)
 	return (res);
 }
 
-char    *go_to_char(char *str, char c)
+char	*go_to_char(char *str, char c)
 {
-    while (*str && *str != c)
-        str++;
-    return (str);
+	while (*str && *str != c)
+		str++;
+	return (str);
 }
 
 char	*ft_strcpy(char *dest, char *src)
 {
-    int	n;
+	int	n;
 
-    n = 0;
-    while (*(src + n) != '\0')
-    {
-        *(dest + n) = *(src + n);
-        n++;
-    }
-    *(dest + n) = *(src + n);
-    return (dest);
+	n = 0;
+	while (*(src + n) != '\0')
+	{
+		*(dest + n) = *(src + n);
+		n++;
+	}
+	*(dest + n) = *(src + n);
+	return (dest);
 }
 
 char	*ft_strcat(char	*dest, char	*src)
 {
-    unsigned int	count;
-    unsigned int	size_dest;
+	unsigned int	count;
+	unsigned int	size_dest;
 
-    count = 0;
-    size_dest = ft_strlen(dest);
-    while (src[count] != '\0')
-    {
-        dest[size_dest + count] = src[count];
-        count++;
-    }
-    dest[size_dest + count] = '\0';
-    return (dest);
+	count = 0;
+	size_dest = ft_strlen(dest);
+	while (src[count] != '\0')
+	{
+		dest[size_dest + count] = src[count];
+		count++;
+	}
+	dest[size_dest + count] = '\0';
+	return (dest);
 }
