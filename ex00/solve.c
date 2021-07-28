@@ -29,9 +29,9 @@ int solve(
     int width,
     int height,
     char obstacle,
-    int *max_found,
     int *max_x,
-    int *max_y)
+    int *max_y,
+    int *max_found)
 {
     int column;
     int row;

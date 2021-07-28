@@ -21,42 +21,44 @@ int get_fd_or_exit(char *path) {
         write(1, "Map Error!\n", 11);
         exit(0);
     }
+
     return (fd);
 }
 
-
-int main(int ac, char **av) {
-    int fd;
+void solve_and_print(int fd)
+{
     char **map;
-    int to_solve;
     int coord_x;
     int coord_y;
     int max_found;
 
-    to_solve = 1;
-    if (ac > 1)
-        fd = get_fd_or_exit(av[to_solve]);
-    else
-        fd = 0;
+    ft_map_reader(fd, &map);
 
-    while (to_solve < ac || fd == 0) {
-        ft_map_reader(fd, &map);
+    char obstacle = 'o';
+    // char empty = '.';
+    if (solve(map, 10, 30, obstacle, &coord_x, &coord_y, &max_found))
+        // draw_map(map, coord_x, coord_y', obstacle, empty);
+        printf("row: %d column: %d square_size: %d\n", coord_x, coord_y, max_found);
 
-        char obstacle = 'o';
-        // char empty = '.';
-        if (solve(map, 10, 30, obstacle, &coord_x, &coord_y, &max_found))
-            // draw_map(map, coord_x, coord_y', obstacle, empty);
-            printf("row: %d column: %d square_size: %d\n", coord_x, coord_y, max_found);
+}
 
-        close(fd);
-        to_solve++;
-        if (fd != 0)
-            fd = get_fd_or_exit(av[to_solve]);
-        else
-            return (0);
+int main(int ac, char **av) {
+    int to_solve;
+    int fd;
+
+    if (ac <= 1)
+    {
+        solve_and_print(0);
+        exit(0);
     }
 
-    close(fd);
+    to_solve = 0;
+
+    while (++to_solve < ac) {
+        fd = get_fd_or_exit(av[to_solve]);
+        solve_and_print(fd);
+        close(fd);
+    }
 
     return (0);
 }
