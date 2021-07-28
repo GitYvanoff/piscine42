@@ -6,7 +6,7 @@
 /*   By: ypetruzz <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 22:10:55 by ypetruzz          #+#    #+#             */
-/*   Updated: 2021/07/28 22:58:53 by bcolin           ###   ########.fr       */
+/*   Updated: 2021/07/28 23:26:12 by bcolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,16 @@ char	*load_map_from_fd(int	fd)
 	size = 1;
 	result = (char *)malloc(sizeof(char) * 1);
 	result[0] = 0;
-	read_return = read(fd, buf, BUFFSIZE);
-	while (read_return > 0)
-	{
-		buf[read_return] = 0;
-		size += read_return;
-		result = resize_str(result, size);
-		result = ft_strcat(result, buf);
-	}
+    while (1)
+    {
+        read_return = read(fd, buf, BUFFSIZE);
+        if (read_return <= 0)
+            break;
+
+        buf[read_return] = 0;
+        size += read_return;
+        result = resize_str(result, size);
+        result = ft_strcat(result, buf);
+    }
 	return (result);
 }
