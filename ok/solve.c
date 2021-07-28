@@ -44,7 +44,7 @@ int	solve(t_map map,	int *max_x, int	*max_y, int	*max_found)
 		while (++column < map.width)
 		{
 			sqw_s = 0;
-			while (++sqw_s + row < map.height && sqw_s + column < map.width)
+			while (++sqw_s + row <= map.height && sqw_s + column <= map.width)
 			{
 				if (is_square_free(map, row, column, sqw_s)
 					&& sqw_s > *max_found)
