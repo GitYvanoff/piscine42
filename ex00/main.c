@@ -27,19 +27,24 @@ int get_fd_or_exit(char *path) {
 
 void solve_and_print(int fd)
 {
-    char **map;
+    Map map;
     int coord_x;
     int coord_y;
     int max_found;
 
-    ft_map_reader(fd, &map);
+    if (!ft_map_reader(fd, &map))
+        return;
 
-    char obstacle = 'o';
-    // char empty = '.';
-    if (solve(map, 10, 30, obstacle, &coord_x, &coord_y, &max_found))
+    if (solve(map, &coord_x, &coord_y, &max_found))
         // draw_map(map, coord_x, coord_y', obstacle, empty);
-        printf("row: %d column: %d square_size: %d\n", coord_x, coord_y, max_found);
+        printf(
+            "row: %d column: %d square_size: %d\n",
+            coord_x, coord_y, max_found);
 
+    coord_y = -1;
+    while (++coord_y < map.height)
+        free(map.grid[coord_y]);
+    free(map.grid);
 }
 
 int main(int ac, char **av) {

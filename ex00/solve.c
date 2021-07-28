@@ -1,11 +1,10 @@
 #include "solve.h"
 
 int is_square_free(
-    char **map,
+    Map map,
     int row,
     int column,
-    int square_size,
-    char obstacle)
+    int square_size)
 {
     int x;
     int y;
@@ -16,7 +15,7 @@ int is_square_free(
         x = -1;
         while (++x < square_size)
         {
-            if (map[row+y][column+x] == obstacle)
+            if (map.grid[row+y][column+x] == map.obstacle)
                 return (0);
         }
     }
@@ -25,10 +24,7 @@ int is_square_free(
 }
 
 int solve(
-    char **map,
-    int width,
-    int height,
-    char obstacle,
+    Map map,
     int *max_x,
     int *max_y,
     int *max_found)
@@ -40,23 +36,22 @@ int solve(
     *max_found = -1;
 
     row = -1;
-    while (++row < height)
+    while (++row < map.height)
     {
         column = -1;
-        while (++column < width)
+        while (++column < map.width)
         {
             square_size = 0;
             while (
-                ++square_size + row < height
-                && square_size + column < width
+                ++square_size + row < map.height
+                && square_size + column < map.width
             )
             {
                 if (is_square_free(
                      map,
                      row,
                      column,
-                     square_size,
-                     obstacle)
+                     square_size)
                     && square_size > *max_found
                 )
                 {

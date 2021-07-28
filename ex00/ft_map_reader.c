@@ -3,10 +3,7 @@
 
 char *get_first_line(char *map)
 {
-    char *first_line;
-
-    first_line = ft_strdup_stop(map, '\n');
-    return (first_line);
+    return (ft_strdup_stop(map, '\n'));
 }
 
 int get_lines_count(char *first_line)
@@ -16,30 +13,36 @@ int get_lines_count(char *first_line)
     return (ft_atoi(first_line));
 }
 
-char **map_loader(char *str, int lines_count)
+void map_loader(char *str, int lines_count, Map *map)
 {
-    char **map;
     int y;
 
-    map = (char **) malloc(sizeof(char *) * lines_count);
-    str = go_to_char(str, '\n');
-    str++;
+    map->grid = (char **) malloc(
+            sizeof(char *) * lines_count);
+
     y = 0;
     while (y < lines_count) {
-        map[y] = ft_strdup_stop(str, '\n');
-        y++;
         str = go_to_char(str, '\n');
         str++;
+
+        map->grid[y] = ft_strdup_stop(str, '\n');
+        y++;
     }
-    return (map);
+
+    map->height = lines_count;
+    map->width = ft_strlen(map->grid[0]);
 }
 
-int validate_char(char c, char *allowed)
+int validate_char(Map *map, int x, int y)
 {
-    return (c == allowed[0] || c == allowed[1]);
+    return (
+        map->grid[y][x] == map->empty
+        || map->grid[y][x] == map->obstacle
+        || map->grid[y][x] == map->filler
+    );
 }
 
-int is_map_valid(char **map, int lines_count, char *allowed_chars) //TODO:add a param to send valid chars
+int is_map_valid(Map *map, int lines_count)
 {
     int expected_width;
     int y;
@@ -47,53 +50,52 @@ int is_map_valid(char **map, int lines_count, char *allowed_chars) //TODO:add a 
     int line_length;
 
     y = 0;
-    expected_width = ft_strlen(map[y]);
+    expected_width = ft_strlen(map->grid[y]);
+
     while (y < lines_count) {
-        line_length = ft_strlen(map[y]);
-        x = 0;
+        line_length = ft_strlen(map->grid[y]);
+
         if (line_length != expected_width)
             return (1);
-        while (x < line_length)
-            if (!validate_char(map[y][x++], allowed_chars)) //TODO: send allowed chars
-                return (1);
+
+        x = -1;
+        while (++x < line_length)
+            if (!validate_char(map, x, y))
+                return (0);
+
         y++;
     }
-    return (0);
+
+    return (1);
 }
 
-char *get_allowed_chars(char *first_line)
+void get_allowed_chars(char *first_line, Map *map)
 {
-    char *allowed_chars;
     int count;
-    int count_al;
 
     count = 0;
-    count_al = 0;
-    while (first_line[count] >= '0' && first_line[count] <= '9')
+
+    while (
+        first_line[count] >= '0'
+        && first_line[count] <= '9')
         count++;
-    allowed_chars = malloc(ft_strlen(&first_line[count]) * sizeof(char));
-    while (first_line[count] != '\0') {
-        allowed_chars[count_al] = first_line[count];
-        count++;
-        count_al++;
-    }
-    allowed_chars[count_al] = '\0';
-    return (allowed_chars);
+
+    map->empty = first_line[count];
+    map->obstacle = first_line[count+1];
+    map->filler = first_line[count+2];
 }
 
-int ft_map_reader(int fd, char ***map)
+int ft_map_reader(int fd, Map *map)
 {
-    char *map_tmp; //code smell
+    char *raw_map;
     char *first_line;
     int lines_count;
-    char *allowed_chars;
 
-    map_tmp = load_map_from_fd(fd);
-    first_line = get_first_line(map_tmp);
+    raw_map = load_map_from_fd(fd);
+    first_line = get_first_line(raw_map);
     lines_count = get_lines_count(first_line);
-    allowed_chars = get_allowed_chars(first_line);
-    *map = map_loader(map_tmp, lines_count);
-    if (!is_map_valid(*map, lines_count, allowed_chars))
-        return (1);
-    return (0);
+    get_allowed_chars(first_line, map);
+    map_loader(raw_map, lines_count, map);
+
+    return (is_map_valid(map, lines_count));
 }
