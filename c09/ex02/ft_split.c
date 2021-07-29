@@ -6,7 +6,7 @@
 /*   By: ypetruzz <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/26 16:40:05 by ypetruzz          #+#    #+#             */
-/*   Updated: 2021/07/29 12:26:27 by ypetruzz         ###   ########.fr       */
+/*   Updated: 2021/07/29 12:29:20 by ypetruzz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 #include <stdio.h>
 #include <unistd.h>
 
-int	ft_size_wrd(char	*str, char	*charset);
-int	ft_in_str(char	c, char	*base);
-int	ft_wrd_count(char	*str, char	*charset);
+int		ft_size_wrd(char	*str, char	*charset);
+int		ft_in_str(char	c, char	*base);
+int		ft_wrd_count(char	*str, char	*charset);
 char	**ft_split(char	*str, char	*charset);
 
 int	ft_size_wrd(char	*str, char	*charset)
@@ -62,8 +62,8 @@ int	ft_wrd_count(char	*str, char	*charset)
 
 char	**ft_split(char	*str, char	*charset)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 	char	*wrd;
 	char	**tab;
 
@@ -89,7 +89,7 @@ char	**ft_split(char	*str, char	*charset)
 	return (tab);
 }
 
-int	main(void)
+/*int	main(void)
 {
 	int		i;
 	char	**tab;
@@ -101,4 +101,4 @@ int	main(void)
 		printf("#%d : \"%s\"\n", i, tab[i]);
 		i++;
 	}
-}
+}*/
