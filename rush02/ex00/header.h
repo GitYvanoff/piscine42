@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   string.h                                           :+:      :+:    :+:   */
+/*   header.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ypetruzz <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/27 12:37:14 by ypetruzz          #+#    #+#             */
-/*   Updated: 2021/07/27 12:48:08 by ypetruzz         ###   ########.fr       */
+/*   Created: 2021/07/25 02:35:56 by ypetruzz          #+#    #+#             */
+/*   Updated: 2021/07/25 18:36:02 by ypetruzz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STRING_H
-# define STRING_H
+#ifndef HEADER_H
+# define HEADER_H
 
 #include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <fcntl.h>
 
+char	*parser();
+
+void	ft_putstr(char	*str);
 void	ft_putchar(char	c);
-void	ft_putnbr(int	nb);
-void	ft_putstr(char *str);
-int		ft_strlen(char *str);
-char    *ft_strdup(char *src);
-char    *ft_strdup_stop(char *src, char	stop);
-int     ft_strlen(char *str);
-int     ft_strlen_stop(char *str, char	stop);
-char    *go_to_char(char *str, char c);
-char	*ft_strcat(char	*dest, char	*src);
-char	*ft_strcpy(char *dest, char *src);
+int		ft_strlen(char	*str);
+int		ft_strcmp(char	*s1, char	*s2);
 
 #endif

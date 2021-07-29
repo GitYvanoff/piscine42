@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_read_console.c                                  :+:      :+:    :+:   */
+/*   load_map_from_fd.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bcolin <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,27 +10,39 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_base.h"
+#include "string.h"
 #define BUFFSIZE 4098
 
-char *ft_read_console()
-{
-	char 	*map;
-	char 	buf[BUFFSIZE];
-	int		read_v;
-	int		size;
 
-	size = 0;
-	read_v = 1;
-	while (read_v > 0)
-	{
-		read_v = read(0 , buf, BUFFSIZE);
-		size += read_v;
-		printf("nb de valeur lu:%d\n", size);
-		map = malloc(sizeof(char) * size + 1);
-		if (map == NULL)
-			return (NULL);
-		map = ft_strjoin(map, buf);
-	}
-	map[size + 1] = '\0';
-	return (map);
+char *resize_str(char *str, int size)
+{
+    char *swap;
+
+    swap = ft_strdup(str);
+    if (str != NULL)
+        free(str);
+    str = (char *)malloc(sizeof(char) * size);
+    str = ft_strcpy(str, swap);
+    free(swap);
+    return (str);
+}
+
+
+char *load_map_from_fd(int fd) {
+    char    *result;
+    char    buf[BUFFSIZE + 1];
+    int     read_return;
+    int     size;
+
+    size = 1;
+    result = (char *)malloc(sizeof(char) * 1);
+    result[0] = 0;
+    while ((read_return = read(fd, buf, BUFFSIZE)) > 0)
+    {
+        buf[read_return] = 0;
+        size += read_return;
+        result = resize_str(result, size);
+        result = ft_strcat(result, buf);
+    }
+    return result;
 }

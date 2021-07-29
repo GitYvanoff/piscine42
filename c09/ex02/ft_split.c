@@ -6,101 +6,99 @@
 /*   By: ypetruzz <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/26 16:40:05 by ypetruzz          #+#    #+#             */
-/*   Updated: 2021/07/28 11:36:54 by ypetruzz         ###   ########.fr       */
+/*   Updated: 2021/07/29 12:26:27 by ypetruzz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <unistd.h>
 
-int	ft_strlen(char	*str)
+int	ft_size_wrd(char	*str, char	*charset);
+int	ft_in_str(char	c, char	*base);
+int	ft_wrd_count(char	*str, char	*charset);
+char	**ft_split(char	*str, char	*charset);
+
+int	ft_size_wrd(char	*str, char	*charset)
 {
-	int	i;
+	int	count;
 
-	i = 0;
-	while (*str++)
-		i++;
-	return (i);
+	count = 0;
+	while (str[count] && ft_in_str(str[count], charset) == -1)
+		count++;
+	return (count);
 }
 
-void	ft_strcpy(char	*str, int	offset, int	i, char	**tab)
+int	ft_in_str(char	c, char	*base)
 {
-	int		diff;
-	int		c;
+	int	offset;
 
-	c = 0;
-	diff = i - offset;
-	while (diff < i)
+	offset = 0;
+	while (*(base + offset))
+		if (c == *(base + offset++))
+			return (offset - 1);
+	return (-1);
+}
+
+int	ft_wrd_count(char	*str, char	*charset)
+{
+	int	size;
+	int	nb_words;
+
+	nb_words = 0;
+	while (*str)
 	{
-		tab[0][c] = str[diff];
-		diff++;
-		c++;
+		while (*str && ft_in_str(*str, charset) != -1)
+			str++;
+		size = ft_size_wrd(str, charset);
+		if (size)
+		{
+			nb_words++;
+			str += size;
+		}
 	}
-	tab[0][c] = '\0';
-}
-
-char	*ft_create_tab(int	*offset, int	i, char	*str, int	*dc)
-{
-	char	*tab;
-
-	tab = malloc(1 + *offset * sizeof(char));
-	ft_strcpy(str, *offset, i, &tab);
-	*dc += 1;
-	*offset = 0;
-	return (tab);
-}
-
-char	*ft_add_final_tab(int	*dc)
-{
-	char	*tab;
-
-	*dc += 1;
-	tab = malloc(2 * sizeof(char));
-	tab[0] = 0;
-	tab[1] = '\0';
-	return (tab);
+	return (nb_words);
 }
 
 char	**ft_split(char	*str, char	*charset)
 {
-	char	**dest;
-	int		offset;
-	int		i;
-	int		check;
-	int		dc;
+	int	i;
+	int	j;
+	char	*wrd;
+	char	**tab;
 
-	dest = malloc(sizeof(char *) * ft_strlen(str) + 1);
-	dc = -1;
-	offset = 0;
-	i = -1;
-	while (str[++i])
+	i = 0;
+	tab = malloc((ft_wrd_count(str, charset) + 2) * sizeof(char *));
+	while (*str)
 	{
-		check = -1;
-		while (check++ < ft_strlen(charset))
+		while (*str && ft_in_str(*str, charset) != -1)
+			str++;
+		j = 0;
+		if (ft_size_wrd(str, charset))
 		{
-			if (str[i] == charset[check])
-				dest[dc] = ft_create_tab(&offset, i, str, &dc);
-			while (str[i] == charset[check])
-				i++;
+			wrd = malloc((ft_size_wrd(str, charset) + 1) * sizeof(char));
+			while (*str && ft_in_str(*str, charset) == -1)
+			{
+				wrd[j++] = *(str++);
+			}
+			wrd[j] = '\0';
+			tab[i++] = wrd;
 		}
-		offset++;
 	}
-	dest[dc] = ft_create_tab(&offset, i, str, &dc);
-	dest[dc] = ft_add_final_tab(&dc);
-	return (dest);
+	tab[i] = 0;
+	return (tab);
 }
 
-/*int		main(int	ac, char	**av)
+int	main(void)
 {
+	int		i;
 	char	**tab;
-	int			i;
-	if (ac != 3)
-		return (1);
+
 	i = 0;
-	tab = ft_split(av[1], av[2]);
+	tab = ft_split("hello123, c,om,??ment vas-tu ?", ",-?");
 	while (tab[i])
 	{
-	printf("resu:%s\n", tab[i]);
+		printf("#%d : \"%s\"\n", i, tab[i]);
 		i++;
 	}
-}*/
+}
