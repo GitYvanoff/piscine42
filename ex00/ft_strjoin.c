@@ -1,13 +1,13 @@
 /* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: ypetruzz <marvin@42lausanne.ch>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/27 15:03:50 by ypetruzz          #+#    #+#             */
-/*   Updated: 2021/07/28 14:49:52 by bcolin           ###   ########.fr       */
-/*                                                                            */
+/*																			*/
+/*														:::	  ::::::::   */
+/*   ft_strjoin.c									   :+:	  :+:	:+:   */
+/*													+:+ +:+		 +:+	 */
+/*   By: ypetruzz <marvin@42lausanne.ch>			+#+  +:+	   +#+		*/
+/*												+#+#+#+#+#+   +#+		   */
+/*   Created: 2021/07/27 15:03:50 by ypetruzz		  #+#	#+#			 */
+/*   Updated: 2021/07/28 14:49:52 by bcolin		   ###   ########.fr	   */
+/*																			*/
 /* ************************************************************************** */
 
 #include "ft_base.h"
@@ -17,9 +17,9 @@ char	*ft_strjoin(char *s1, char *s2)
 {
 	int		i;
 	int		str_len;
-	char	*tab;	
+	char	*tab;
 	int		c;
-	
+
 //	printf("s1 :%s\n", s1);
 //	printf("s2 :%s\n", s2);
 
@@ -35,7 +35,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	while (i < ft_strlen(s2))
 	{
 		tab[c++] = s2[i];
-		i++;	
+		i++;
 	}
 	return (tab);
 }

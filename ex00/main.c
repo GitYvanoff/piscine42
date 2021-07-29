@@ -1,61 +1,82 @@
 /* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: bcolin <marvin@42lausanne.ch>              +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/27 12:35:50 by bcolin            #+#    #+#             */
-/*   Updated: 2021/07/28 12:19:47 by ypetruzz         ###   ########.fr       */
-/*                                                                            */
+/*																			*/
+/*														:::	  ::::::::   */
+/*   main.c											 :+:	  :+:	:+:   */
+/*													+:+ +:+		 +:+	 */
+/*   By: bcolin <marvin@42lausanne.ch>			  +#+  +:+	   +#+		*/
+/*												+#+#+#+#+#+   +#+		   */
+/*   Created: 2021/07/27 12:35:50 by bcolin			#+#	#+#			 */
+/*   Updated: 2021/07/28 12:19:47 by ypetruzz		 ###   ########.fr	   */
+/*																			*/
 /* ************************************************************************** */
 #include "ft_base.h"
 #include "solve.h"
 
+void	draw_map(Map map, int x, int y, int size)
+{
+	int i;
+	int j;
 
-int get_fd_or_exit(char *path) {
-    int fd;
-
-    if ((fd = open(path, O_RDONLY)) < 0);
-    {
-        write(1, "Map Error!\n", 11);
-        exit(0);
-    }
-    return (fd);
+	i = 0;
+	while (i < map.height)
+	{
+		j = 0;
+		while (map.grid[i][j])
+		{
+			if (j >= x && j < x + size && i >= y && i < y + size)
+				write(1, &map.filler, 1);
+			else
+				write(1, &map.grid[i][j], 1);
+			j++;
+		}
+		i++;
+		write(1, "\n", 1);
+	}
 }
 
+int get_fd_or_exit(char *path) {
+	int fd;
+
+	if ((fd = open(path, O_RDONLY)) < 0)
+	{
+		write(1, "Map Error!\n", 11);
+		exit(0);
+	}
+	return (fd);
+}
+
+void solve_and_print(int fd)
+{
+	Map map;
+	int coord_x;
+	int coord_y;
+	int square_size;
+
+	if (!ft_map_reader(fd, &map))
+		return;
+	if (solve(map, &coord_x, &coord_y, &square_size))
+		draw_map(map, coord_x, coord_y, square_size);
+	coord_y = -1;
+	while (++coord_y < map.height)
+		free(map.grid[coord_y]);
+	free(map.grid);
+}
 
 int main(int ac, char **av) {
-    int fd;
-    char **map;
-    int to_solve;
-    int coord_x;
-    int coord_y;
+	int to_solve;
+	int fd;
 
-    to_solve = 1;
-    if (ac > 1)
-        fd = get_fd_or_exit(av[to_solve]);
-    else
-        fd = 0;
-
-    while (to_solve < ac || fd == 0) {
-        ft_map_reader(fd, &map);
-
-        char obstacle = 'o';
-        // char empty = '.';
-        if (solve(map, 10, 30, obstacle, &coord_x, &coord_y))
-            // draw_map(map, coord_x, coord_y', obstacle, empty);
-            printf("%d %d\n", coord_x, coord_y);
-
-        close(fd);
-        to_solve++;
-        if (fd != 0)
-            fd = get_fd_or_exit(av[to_solve]);
-        else
-            return (0);
-    }
-
-    close(fd);
-
-    return (0);
+	if (ac <= 1)
+	{
+		solve_and_print(0);
+		exit(0);
+	}
+	to_solve = 0;
+	while (++to_solve < ac) {
+		fd = get_fd_or_exit(av[to_solve]);
+		solve_and_print(fd);
+		write(1, "\n", 1);
+		close(fd);
+	}
+	return (0);
 }
